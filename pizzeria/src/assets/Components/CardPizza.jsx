@@ -1,7 +1,12 @@
 const CardPizza = ({ name, price, ingredients, img }) => {
   return (
     <div className="card h-100" style={{ width: '18rem' }}>
-      <img src={img} className="card-img-top" alt={name} />
+      <img 
+        src={img} 
+        className="card-img-top" 
+        alt={name} 
+        style={{ height: "200px", objectFit: "cover" }} 
+      />
       <div className="card-body">
         <h5 className="card-title text-center">Pizza {name}</h5>
       </div>
