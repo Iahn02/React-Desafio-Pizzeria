@@ -1,4 +1,8 @@
-const CardPizza = ({ name, price, ingredients, img }) => {
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
+
+const CardPizza = ({ id, name, price, ingredients, img }) => {
+  const { addToCart } = useContext(CartContext);
   return (
     <div className="card h-100" style={{ width: '18rem' }}>
       <img 
@@ -22,7 +26,7 @@ const CardPizza = ({ name, price, ingredients, img }) => {
         <h4>${price}</h4>
         <div className="d-flex justify-content-around">
           <button className="btn btn-light border">Ver Más 👀</button>
-          <button className="btn btn-dark">Añadir 🛒</button>
+          <button className="btn btn-dark" onClick={() => addToCart({ id, name, price, img })}>Añadir 🛒</button>
         </div>
       </div>
     </div>

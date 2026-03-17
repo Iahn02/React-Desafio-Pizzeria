@@ -1,32 +1,8 @@
-import { useState } from "react";
-import { pizzaCart } from "../pizzas.js";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
 const Cart = () => {
-  const [cart, setCart] = useState(pizzaCart);
-
-  const increaseQuantity = (id) => {
-    const newCart = cart.map((pizza) => {
-      if (pizza.id === id) {
-        return { ...pizza, count: pizza.count + 1 };
-      }
-      return pizza;
-    });
-    setCart(newCart);
-  };
-
-  const decreaseQuantity = (id) => {
-    const newCart = cart
-      .map((pizza) => {
-        if (pizza.id === id) {
-          return { ...pizza, count: pizza.count - 1 };
-        }
-        return pizza;
-      })
-      .filter((pizza) => pizza.count > 0);
-    setCart(newCart);
-  };
-
-  const total = cart.reduce((acc, pizza) => acc + pizza.price * pizza.count, 0);
+  const { cart, increaseQuantity, decreaseQuantity, total } = useContext(CartContext);
 
   return (
     <div className="container mt-5 p-4 bg-light rounded" style={{ maxWidth: '600px' }}>

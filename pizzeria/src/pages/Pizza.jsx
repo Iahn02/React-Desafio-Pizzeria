@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
 const Pizza = () => {
   const [pizza, setPizza] = useState(null);
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     const fetchPizza = async () => {
@@ -52,7 +54,7 @@ const Pizza = () => {
               
               <div className="d-flex justify-content-between align-items-center mt-4">
                 <h4 className="mb-0 fw-bold">Precio: ${pizza.price}</h4>
-                <button className="btn btn-dark">Añadir 🛒</button>
+                <button className="btn btn-dark" onClick={() => addToCart({ id: pizza.id, name: pizza.name, price: pizza.price, img: pizza.img })}>Añadir 🛒</button>
               </div>
             </div>
           </div>

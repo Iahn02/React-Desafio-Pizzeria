@@ -8,6 +8,7 @@
 3. [Fase 3: Componentes estáticos y dinámicos (Home y Cart)](#fase-3-componentes-estáticos-y-dinámicos-home-y-cart)
 4. [Fase 4: Consumo de API (Home y Pizza)](#fase-4-consumo-de-api-home-y-pizza)
 5. [Fase 5: Enrutamiento con React Router](#fase-5-enrutamiento-con-react-router)
+6. [Fase 6: Manejo de estado global con Context API](#fase-6-manejo-de-estado-global-con-context-api)
 ---
 
 ## Fase 1: Creación del proyecto y primeras vistas
@@ -83,3 +84,15 @@ En esta fase, configuramos las rutas del proyecto y la navegación utilizando `r
 ![Profile View - Fase 5](./public/screenshots/profile-phase5.png)
 ![Pizza View - Fase 5](./public/screenshots/pizza-phase5.png)
 ![Not Found View - Fase 5](./public/screenshots/notfound-phase5.png)
+
+---
+
+## Fase 6: Manejo de estado global con Context API
+
+En esta fase, implementamos el manejo del estado global de la aplicación web utilizando Context API:
+
+- **CartContext**: Creado para manejar el estado del carrito de compras de forma global. Provee las variaciones para añadir productos (`addToCart`), aumentar su cantidad (`increaseQuantity`), disminuirla (`decreaseQuantity`) y calcula el precio total de manera automática.
+- **Navbar**: Actualizada para consumir el `CartContext` y mostrar dinámicamente el precio total del carrito de compras actualizado en tiempo real en toda la aplicación.
+- **Añadir al carrito**: En las vistas `Home` y `Pizza`, el botón "Añadir 🛒" fue enlazado directamente al context, permitiendo agregar elementos al carrito desde distintos lugares.
+- **Cart**: La página del pedido fue refactorizada por completo para alimentarse dinámicamente desde el `CartContext`, permitiendo ajustar cantidades y reflejando el total consistentemente.
+- **PizzaContext (Opcional)**: Adicionalmente, creamos un contexto opcional que maneja la centralización y consumo (*fetch*) del listado general de pizzas proveniente de la API, optimizando el renderizado en la página central.
