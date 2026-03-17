@@ -1,47 +1,46 @@
-# App Pizzeria
+# Pizzería - Mamma Mia!
 
-This project is a React application built with Vite.
+¡Bienvenido al repositorio de nuestro proyecto Pizzería! Este proyecto se está construyendo paso a paso como parte de los desafíos del Bootcamp de React.
 
-## 🚀 Instalación y Configuración Local
-
-Este repositorio **no incluye** la carpeta `node_modules` (las dependencias de Node.js no se suben a GitHub por buenas prácticas y para evitar subir archivos pesados e innecesarios). 
-
-Para ejecutar este proyecto en tu entorno local, debes instalar las dependencias luego de clonar el repositorio siguiendo estos sencillos pasos:
-
-1. Clona este repositorio en tu máquina local:
-   ```bash
-   git clone <URL_DEL_REPOSITORIO>
-   ```
-2. Accede a la carpeta del proyecto:
-   ```bash
-   cd pizzeria
-   ```
-3. Instala todas las dependencias necesarias (esto generará localmente tu propia carpeta `node_modules`):
-   ```bash
-   npm install
-   ```
-4. Inicia el servidor de desarrollo local:
-   ```bash
-   npm run dev
-   ```
+## Índice
+1. [Fase 1: Creación del proyecto y primeras vistas](#fase-1-creación-del-proyecto-y-primeras-vistas)
+2. [Fase 2: Componentes de Register y Login](#fase-2-componentes-de-register-y-login)
+3. [Fase 3: Próximos pasos](#fase-3-próximos-pasos)
 
 ---
 
-## Vite Template Info
+## Fase 1: Creación del proyecto y primeras vistas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+En esta fase inicial, configuramos la base del proyecto utilizando Vite y creamos la estructura fundamental de la aplicación. Se implementaron los componentes estáticos principales que definen la vista principal o *Home*:
 
-Currently, two official plugins are available:
+- **Navbar**: Barra de navegación superior.
+- **Header**: Cabecera principal con información destacada.
+- **Home**: Vista principal que muestra las opciones de pizzas.
+- **Footer**: Pie de página de la aplicación.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### Capturas de la vista Home (Fase 1)
+![Home View - Parte 1](./public/screenshots/home-1.png)
+![Home View - Parte 2](./public/screenshots/home-2.png)
 
-## React Compiler
+---
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Fase 2: Componentes de Register y Login
 
-Note: This will impact Vite dev & build performances.
+En la segunda fase, nos enfocamos en la creación de los formularios de autenticación para los usuarios.
 
-## Expanding the ESLint configuration
+- **Register**: Formulario de registro con validaciones de contraseñas.
+- **Login**: Formulario de inicio de sesión básico.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Captura de la vista Register
+![Register View](./public/screenshots/register.png)
+
+### Captura de la vista Login
+![Login View](./public/screenshots/login.png)
+
+---
+
+## Fase 3: Próximos pasos
+
+*En desarrollo...*
+Pronto comenzaremos a trabajar en la siguiente fase de la pizzería. ¡Mantente al tanto para más actualizaciones!
+
