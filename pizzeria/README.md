@@ -6,6 +6,7 @@
 1. [Fase 1: Creación del proyecto y primeras vistas](#fase-1-creación-del-proyecto-y-primeras-vistas)
 2. [Fase 2: Componentes de Register y Login](#fase-2-componentes-de-register-y-login)
 3. [Fase 3: Componentes estáticos y dinámicos (Home y Cart)](#fase-3-componentes-estáticos-y-dinámicos-home-y-cart)
+4. [Fase 4: Consumo de API (Home y Pizza)](#fase-4-consumo-de-api-home-y-pizza)
 
 ---
 
@@ -53,3 +54,14 @@ En esta tercera fase, nos enfocamos en refactorizar la vista Home para que consu
 ### Captura de la vista Cart
 ![Cart View](./public/screenshots/cart.png)
 
+---
+
+## Fase 4: Consumo de API (Home y Pizza)
+
+En esta fase, integramos una API para obtener la información de las pizzas de forma dinámica en lugar de utilizar el arreglo local estático.
+
+- **Home**: Se modificó para consumir el endpoint `http://localhost:5000/api/pizzas` mediante `useEffect` y `fetch`.
+- **Pizza**: Se creó un nuevo componente que consume un endpoint dinámico (ej. `http://localhost:5000/api/pizzas/p001`) para mostrar en detalle la información de una sola pizza.
+
+### Captura de la vista Pizza (Consumo de API)
+![Pizza View](./public/screenshots/pizza.png)
