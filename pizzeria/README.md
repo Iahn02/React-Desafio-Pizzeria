@@ -7,7 +7,7 @@
 2. [Fase 2: Componentes de Register y Login](#fase-2-componentes-de-register-y-login)
 3. [Fase 3: Componentes estáticos y dinámicos (Home y Cart)](#fase-3-componentes-estáticos-y-dinámicos-home-y-cart)
 4. [Fase 4: Consumo de API (Home y Pizza)](#fase-4-consumo-de-api-home-y-pizza)
-
+5. [Fase 5: Enrutamiento con React Router](#fase-5-enrutamiento-con-react-router)
 ---
 
 ## Fase 1: Creación del proyecto y primeras vistas
@@ -65,3 +65,21 @@ En esta fase, integramos una API para obtener la información de las pizzas de f
 
 ### Captura de la vista Pizza (Consumo de API)
 ![Pizza View](./public/screenshots/pizza.png)
+
+---
+
+## Fase 5: Enrutamiento con React Router
+
+En esta fase, configuramos las rutas del proyecto y la navegación utilizando `react-router-dom`:
+
+- **Navegación general**: Implementada en `App.jsx` con rutas para `Home`, `Register`, `Login`, `Cart`, `Pizza`, `Profile` y `NotFound`.
+- **Navbar**: Actualizada con enlaces de navegación para navegar entre vistas sin recargar la página.
+- **Profile**: Componente de vista de usuario con email estático y opción para poder cerrar sesión.
+- **NotFound**: Componente para manejar las rutas inexistentes de forma amigable, permitiendo al usuario volver al inicio.
+
+### Capturas del enrutamiento
+![Home View - Fase 5](./public/screenshots/home-phase5.png)
+![Cart View - Fase 5](./public/screenshots/cart-phase5.png)
+![Profile View - Fase 5](./public/screenshots/profile-phase5.png)
+![Pizza View - Fase 5](./public/screenshots/pizza-phase5.png)
+![Not Found View - Fase 5](./public/screenshots/notfound-phase5.png)

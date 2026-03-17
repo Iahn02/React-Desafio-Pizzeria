@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import Header from "./Header";
-import CardPizza from "./CardPizza";
+import Header from "../assets/Components/Header";
+import CardPizza from "../assets/Components/CardPizza";
 
 const Home = () => {
   const [pizzas, setPizzas] = useState([]);

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const total = 25000;
@@ -6,27 +7,27 @@ const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container">
-                <a className="navbar-brand" href="#">Pizzería Mamma Mia!</a>
+                <Link className="navbar-brand" to="/">Pizzería Mamma Mia!</Link>
                 
                 <div className="collapse navbar-collapse d-flex justify-content-between">
                     <div className="navbar-nav">
-                        <button className="btn btn-outline-light text-white m-1 btn-sm">🍕 Home</button>
+                        <Link to="/" className="btn btn-outline-light text-white m-1 btn-sm">🍕 Home</Link>
                         {token ? (
                             <>
-                                <button className="btn btn-outline-light text-white m-1 btn-sm">🔓 Profile</button>
+                                <Link to="/profile" className="btn btn-outline-light text-white m-1 btn-sm">🔓 Profile</Link>
                                 <button className="btn btn-outline-light text-white m-1 btn-sm">🔒 Logout</button>
                             </>
                         ) : (
                             <>
-                                <button className="btn btn-outline-light text-white m-1 btn-sm">🔐 Login</button>
-                                <button className="btn btn-outline-light text-white m-1 btn-sm">🔐 Register</button>
+                                <Link to="/login" className="btn btn-outline-light text-white m-1 btn-sm">🔐 Login</Link>
+                                <Link to="/register" className="btn btn-outline-light text-white m-1 btn-sm">🔐 Register</Link>
                             </>
                         )}
                     </div>
                 </div>
 
                 <div className="navbar-nav ms-auto">
-                    <button className="btn btn-outline-info m-1 btn-sm">🛒 Total: ${total.toLocaleString()}</button>
+                    <Link to="/cart" className="btn btn-outline-info m-1 btn-sm">🛒 Total: ${total.toLocaleString()}</Link>
                 </div>
             </div>
         </nav>
