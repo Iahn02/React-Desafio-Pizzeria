@@ -12,7 +12,11 @@ const CardPizza = ({ name, price, ingredients, img }) => {
       </div>
       <ul className="list-group list-group-flush text-center">
         <li className="list-group-item text-muted">Ingredientes:</li>
-        <li className="list-group-item small">🍕 {ingredients.join(", ")}</li>
+        {ingredients.map((ingredient, index) => (
+          <li key={index} className="list-group-item small">
+            🍕 {ingredient}
+          </li>
+        ))}
       </ul>
       <div className="card-body text-center">
         <h4>${price}</h4>

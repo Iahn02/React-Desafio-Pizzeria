@@ -5,7 +5,7 @@
 ## Índice
 1. [Fase 1: Creación del proyecto y primeras vistas](#fase-1-creación-del-proyecto-y-primeras-vistas)
 2. [Fase 2: Componentes de Register y Login](#fase-2-componentes-de-register-y-login)
-3. [Fase 3: Próximos pasos](#fase-3-próximos-pasos)
+3. [Fase 3: Componentes estáticos y dinámicos (Home y Cart)](#fase-3-componentes-estáticos-y-dinámicos-home-y-cart)
 
 ---
 
@@ -39,8 +39,17 @@ En la segunda fase, nos enfocamos en la creación de los formularios de autentic
 
 ---
 
-## Fase 3: Próximos pasos
+## Fase 3: Componentes estáticos y dinámicos (Home y Cart)
 
-*En desarrollo...*
-Pronto comenzaremos a trabajar en la siguiente fase de la pizzería. ¡Mantente al tanto para más actualizaciones!
+En esta tercera fase, nos enfocamos en refactorizar la vista Home para que consuma datos dinámicos y en crear la vista del carrito de compras.
+
+- **Home**: Refactorizada para importar el arreglo de pizzas desde `pizzas.js` y renderizar dinámicamente los componentes `CardPizza`.
+- **CardPizza**: Componente actualizado para recibir datos de cada pizza mediante *props* y renderizar su información de forma dinámica.
+- **Cart**: Nuevo componente que simula un carrito de compras. Muestra los detalles de las pizzas agregadas, permite aumentar o disminuir la cantidad y calcula el precio total automáticamente.
+
+### Captura de la vista Home (Fase 3)
+![Home View - Fase 3](./public/screenshots/home-phase3.png)
+
+### Captura de la vista Cart
+![Cart View](./public/screenshots/cart.png)
 

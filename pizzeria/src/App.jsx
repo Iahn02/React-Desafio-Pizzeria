@@ -3,17 +3,18 @@ import Home from './assets/Components/Home'
 import Footer from './assets/Components/Footer'
 import Register from './assets/Components/Register'
 import Login from './assets/Components/Login'
-
+import Cart from './assets/Components/Cart'
 import './App.css'
 
 function App() {
   return (
     <div>
-      {/* <Navbar /> */}
+      <Navbar />
       {/* <Home /> */}
       {/* <Register /> */}
-      <Login />
-      {/* <Footer /> */}
+      {/* <Login /> */}
+      <Cart />
+      <Footer />
     </div>
   )
 }
