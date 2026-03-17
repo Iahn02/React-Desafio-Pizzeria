@@ -7,15 +7,18 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import { BrowserRouter } from 'react-router-dom'
 import { CartProvider } from './context/CartContext.jsx'
 import { PizzaProvider } from './context/PizzaContext.jsx'
+import { UserProvider } from './context/UserContext.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <CartProvider>
-        <PizzaProvider>
-          <App />
-        </PizzaProvider>
-      </CartProvider>
+      <UserProvider>
+        <CartProvider>
+          <PizzaProvider>
+            <App />
+          </PizzaProvider>
+        </CartProvider>
+      </UserProvider>
     </BrowserRouter>
   </StrictMode>,
 )

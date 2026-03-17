@@ -9,6 +9,7 @@
 4. [Fase 4: Consumo de API (Home y Pizza)](#fase-4-consumo-de-api-home-y-pizza)
 5. [Fase 5: Enrutamiento con React Router](#fase-5-enrutamiento-con-react-router)
 6. [Fase 6: Manejo de estado global con Context API](#fase-6-manejo-de-estado-global-con-context-api)
+7. [Fase 7: Rutas protegidas y Context de Usuario](#fase-7-rutas-protegidas-y-context-de-usuario)
 ---
 
 ## Fase 1: Creación del proyecto y primeras vistas
@@ -96,3 +97,15 @@ En esta fase, implementamos el manejo del estado global de la aplicación web ut
 - **Añadir al carrito**: En las vistas `Home` y `Pizza`, el botón "Añadir 🛒" fue enlazado directamente al context, permitiendo agregar elementos al carrito desde distintos lugares.
 - **Cart**: La página del pedido fue refactorizada por completo para alimentarse dinámicamente desde el `CartContext`, permitiendo ajustar cantidades y reflejando el total consistentemente.
 - **PizzaContext (Opcional)**: Adicionalmente, creamos un contexto opcional que maneja la centralización y consumo (*fetch*) del listado general de pizzas proveniente de la API, optimizando el renderizado en la página central.
+
+---
+
+## Fase 7: Rutas protegidas y Context de Usuario
+
+En esta fase avanzamos implementando parámetros dinámicos, rutas protegidas y la gestión global de usuarios:
+
+- **UserContext**: Implementamos un estado global que mantiene la sesión de usuario activa (`token`) y las funciones correspondientes, como el método `logout`. 
+- **Navbar**: Conectada con `UserContext`. Renderiza de manera condicional los botones (Profile y Logout vs. Login y Register) dependiendo del estado del token del usuario.
+- **Rutas Protegidas**: Integradas en `App.jsx` mediante el componente `Navigate`. Restringimos el acceso a `/profile` redirigiendo a `/login` si no hay sesión. Asimismo, evitamos que un usuario ya logueado pueda entrar a `/login` o `/register`, redirigiéndolo al *Home*.
+- **useParams**: Se implementó en `Pizza.jsx` para extraer el ID de la URL y obtener dinámicamente desde el endpoint la información individual de la pizza seleccionada. En `CardPizza`, el botón se actualizó a `<Link>` para redirigir a esta vista.
+- **Validación en Cart**: El botón "Pagar" dentro del carrito de compras fue deshabilitado (`disabled`) para los usuarios que no han iniciado sesión.
