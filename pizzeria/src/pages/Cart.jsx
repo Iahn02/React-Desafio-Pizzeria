@@ -1,10 +1,35 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
 import { UserContext } from "../context/UserContext";
 
 const Cart = () => {
   const { cart, increaseQuantity, decreaseQuantity, total } = useContext(CartContext);
   const { token } = useContext(UserContext);
+  const [message, setMessage] = useState("");
+
+  const handleCheckout = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/api/checkouts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          cart: cart,
+        }),
+      });
+
+      if (response.ok) {
+        setMessage("¡Compra realizada con éxito!");
+      } else {
+        setMessage("Error al realizar la compra.");
+      }
+    } catch (error) {
+      console.error(error);
+      setMessage("Error de conexión...");
+    }
+  };
 
   return (
     <div className="container mt-5 p-4 bg-light rounded" style={{ maxWidth: '600px' }}>
@@ -27,7 +52,8 @@ const Cart = () => {
 
       <div className="mt-4">
         <h2>Total: ${total.toLocaleString("es-CL")}</h2>
-        <button className="btn btn-dark mt-2" disabled={!token}>Pagar</button>
+        <button className="btn btn-dark mt-2" disabled={!token} onClick={handleCheckout}>Pagar</button>
+        {message && <div className="alert alert-info mt-3">{message}</div>}
       </div>
     </div>
   );

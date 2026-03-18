@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { UserContext } from "../context/UserContext";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -7,7 +8,9 @@ const Register = () => {
   const [message, setMessage] = useState("");
   const [error, setError] = useState(false);
 
-  const handleSubmit = (e) => {
+  const { register } = useContext(UserContext);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Validaciones
@@ -29,11 +32,17 @@ const Register = () => {
       return;
     }
 
-    setError(false);
-    setMessage("¡Registro exitoso!");
-    setEmail("");
-    setPassword("");
-    setConfirmPassword("");
+    const success = await register(email, password);
+    if (success) {
+      setError(false);
+      setMessage("¡Registro exitoso!");
+      setEmail("");
+      setPassword("");
+      setConfirmPassword("");
+    } else {
+      setError(true);
+      setMessage("Error en el registro.");
+    }
   };
 
   return (

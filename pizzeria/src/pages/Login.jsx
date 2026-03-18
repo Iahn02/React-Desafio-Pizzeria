@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { UserContext } from "../context/UserContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -6,7 +7,9 @@ const Login = () => {
   const [message, setMessage] = useState("");
   const [error, setError] = useState(false);
 
-  const handleSubmit = (e) => {
+  const { login } = useContext(UserContext);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Validaciones
@@ -22,11 +25,17 @@ const Login = () => {
       return;
     }
 
-    // Datos correctos
-    setError(false);
-    setMessage("¡Sesión iniciada exitosamente!");
-    setEmail("");
-    setPassword("");
+    // Auth
+    const success = await login(email, password);
+    if (success) {
+      setError(false);
+      setMessage("¡Sesión iniciada exitosamente!");
+      setEmail("");
+      setPassword("");
+    } else {
+      setError(true);
+      setMessage("Error al iniciar sesión.");
+    }
   };
 
   return (

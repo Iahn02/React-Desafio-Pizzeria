@@ -109,3 +109,23 @@ En esta fase avanzamos implementando parámetros dinámicos, rutas protegidas y 
 - **Rutas Protegidas**: Integradas en `App.jsx` mediante el componente `Navigate`. Restringimos el acceso a `/profile` redirigiendo a `/login` si no hay sesión. Asimismo, evitamos que un usuario ya logueado pueda entrar a `/login` o `/register`, redirigiéndolo al *Home*.
 - **useParams**: Se implementó en `Pizza.jsx` para extraer el ID de la URL y obtener dinámicamente desde el endpoint la información individual de la pizza seleccionada. En `CardPizza`, el botón se actualizó a `<Link>` para redirigir a esta vista.
 - **Validación en Cart**: El botón "Pagar" dentro del carrito de compras fue deshabilitado (`disabled`) para los usuarios que no han iniciado sesión.
+
+---
+
+## Fase 8: Autenticación con JWT
+
+En esta fase final, completamos la implementación del sistema integrando la autenticación real contra el backend haciendo uso de tokens JWT y de peticiones HTTP:
+
+- **Login y Registro Reales**: Refactorizamos el `UserContext` implementando las funciones `login` y `register` para consumir mediante `fetch` las rutas `POST /api/auth/login` y `POST /api/auth/register` del servidor. Reemplazamos los estados simulados y empezamos a guardar el `token` devuelto y el respectivo `email`.
+- **Obtención del Perfil**: Se construyó el método `getProfile()` dentro del context, que envía el token JWT a través del header `Authorization: Bearer <token>` a la ruta `/api/auth/me`. La vista `Profile.jsx` ahora despliega dinámicamente este email con la sesión.
+- **Cierre de Sesión Completo**: La función `logout` ahora reinicia por completo el `token` y el correo a `null`, impidiendo el acceso nuevamente sin reingresar parámetros. 
+- **Compra en el servidor (Checkout)**: Adicionalmente, el carrito fue vinculado haciendo un llamado al backend enviando la propiedad del carrito y adjuntando el token JWT. Cuando el API devuelve que es correcto, disparamos una interfaz gráfica satisfactoria confirmando la compra.
+
+### Captura de Inicio de Sesión
+![Login Phase 8 - JWT](./public/screenshots/login-success-phase8.png)
+
+### Captura de Vista de Perfil Autenticado
+![Profile Phase 8 - JWT](./public/screenshots/profile-phase8.png)
+
+### Captura de Compra Verificada (Checkout)
+![Cart Checkout Phase 8 - JWT](./public/screenshots/cart-checkout-phase8.png)
